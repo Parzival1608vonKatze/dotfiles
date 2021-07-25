@@ -1,6 +1,0 @@
-2021/07/24-22:45:29.528 3095 Reusing MANIFEST /home/juli/.config/discordcanary/Local Storage/leveldb/MANIFEST-000001
-2021/07/24-22:45:29.528 3095 Recovering log #3
-2021/07/24-22:45:29.711 3095 Reusing old log /home/juli/.config/discordcanary/Local Storage/leveldb/000003.log 
-2021/07/24-22:52:02.152 3084 Level-0 table #5: started
-2021/07/24-22:52:02.245 3084 Level-0 table #5: 14701 bytes OK
-2021/07/24-22:52:02.321 3084 Delete type=0 #3

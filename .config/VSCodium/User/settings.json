@@ -1,8 +1,0 @@
-{
-    "explorer.confirmDelete": false,
-    "files.associations": {
-        "*.md": "markdown"
-    },
-    "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.tabs.enabled": true
-}
