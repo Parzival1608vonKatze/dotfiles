@@ -1,0 +1,7 @@
+{
+    "settings": {
+        "key": "398401c2-cdb3-4187-b5e8-80c89dde1aa5",
+        "server": "\nrtmp://live-server-2.splitstream.io/static"
+    },
+    "type": "rtmp_custom"
+}

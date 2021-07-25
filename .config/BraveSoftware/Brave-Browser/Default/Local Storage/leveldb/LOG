@@ -1,0 +1,6 @@
+2021/07/25-11:55:27.484 3 Reusing MANIFEST /home/juli/.config/BraveSoftware/Brave-Browser/Default/Local Storage/leveldb/MANIFEST-000001
+2021/07/25-11:55:27.574 3 Recovering log #36
+2021/07/25-11:55:27.843 3 Reusing old log /home/juli/.config/BraveSoftware/Brave-Browser/Default/Local Storage/leveldb/000036.log 
+2021/07/25-12:15:11.536 3 Level-0 table #41: started
+2021/07/25-12:15:11.606 3 Level-0 table #41: 23208 bytes OK
+2021/07/25-12:15:11.687 3 Delete type=0 #36
