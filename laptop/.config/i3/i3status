@@ -1,0 +1,71 @@
+# dependencies:
+# nerdfont
+general {
+        colors = true
+        interval = 5
+}
+
+order += "volume master"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery_all"
+order += "memory"
+order += "tztime local"
+
+volume master {
+       format = " %volume"
+        format_muted = "VOL muted"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+read_file BRIGHTNESS {
+        format = "BRI %content%"
+        path = "/home/user_name/.config/brightness"
+        max_characters = 5
+}
+
+cpu_usage {
+        format= "CPU %usage <%cpu0 %cpu1>"
+        max_threshold= 75
+}
+
+wireless _first_ {
+        format_up = "直 %essid, %bitrate"
+        format_down = "睊"
+}
+
+ethernet _first_ {
+        format_up = " %ip (%speed)"
+        format_down = ""
+}
+
+battery all {
+        format = "%status %percentage"
+        format_down = ""
+        status_chr = ""
+        status_bat = ""
+        status_unk = "UNK"
+        status_full = ""
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+tztime local {
+        format = " %m-%d %H:%M"
+}
+
+load {
+        format = "%1min %5min %15min"
+}
+
+memory {
+        format = " %percentage_used"
+        threshold_degraded = "10%"
+        format_degraded = "MEMORY: %free"
+}
+
+disk "/" {
+        format = "HDD %percentage_used"
+}
