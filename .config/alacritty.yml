@@ -23,7 +23,7 @@ env:
   TERM: alacritty
 
 window:
-  dynamic_title: true
+  dynamic_title: false
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -52,7 +52,7 @@ window:
   dynamic_padding: false
 
   # Window title
-  title: Alacritty
+  title: Terminal
 
   # Window class (Linux/BSD only):
   class:
@@ -70,7 +70,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 10000
+  history: 1000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -234,7 +234,7 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.8
+background_opacity: 0.55
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
