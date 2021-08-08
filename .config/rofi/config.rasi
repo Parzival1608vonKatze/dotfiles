@@ -1,7 +1,8 @@
+
 /** Basic config file **/
 
 configuration {
   show-icons:         true;
   icon-theme:         "Papirus";
-  theme: "~/.config/rofi/p-green.theme";
+  theme: "~/.config/rofi/p-green.css";
 }

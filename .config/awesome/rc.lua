@@ -104,7 +104,7 @@ myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
+   { "quit", function() awful.spawn.with_shell("bash ~/.config/rofi/powermenu/powermenu.sh") end },
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
@@ -295,8 +295,8 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "e", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+    awful.key({ modkey, "Shift"   }, "e", function() awful.spawn.with_shell("bash ~/.config/rofi/powermenu/powermenu.sh") end,
+              {description = "Powermenu", group = "Parzival"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -355,8 +355,8 @@ globalkeys = gears.table.join(
 
               -- rofi run
             awful.key({modkey}, "r", function()
-                awful.util.spawn("rofi -show run") end,
-                {descripton ="rofi-run", group ="Parzival"}),
+                awful.spawn.with_shell("bash ~/.config/rofi/launchers/misc/launcher.sh") end,
+                {descripton ="rofi app menu", group ="Parzival"}),
 
     -- Volume 
     awful.key({ modkey },              "=",      function ()

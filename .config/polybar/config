@@ -1,0 +1,158 @@
+
+[bar/top]
+bottom = false
+monitor = ${env:MONITOR:}
+width = 100%
+height = 15
+fixed-center = true
+border-size= 0
+background = ${colors.background}
+foreground = ${colors.foreground}
+padding-left = 0
+padding-right = 0
+module-margin-left = 1
+module-margin-right = 1
+cursor-click = pointer
+cursor-scroll = ns-resize
+;;;;;; Module Positioning
+modules-left =  audio battery  
+modules-right = date
+modules-center =  xwindow
+tray-position = center
+; other tray settings
+;wm-restack = i3 
+;override-redirect = true
+
+font-0 = "JetBrainsMono NF:pixelsize=11;0"
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+pseudo-transparency = false
+
+[global/wm] 
+margin-left = 0
+margin-right = 0
+margin-top = 0
+margin-bottom = 5 vim:set 
+ft=dosini:
+
+[module/audio]
+      type = internal/pulseaudio
+    sink = alsa_output.pci-0000_12_00.3.analog-stereo
+    use-ui-max = true
+    format-volume = <ramp-volume> <label-volume>
+    label-muted = " "
+    ramp-volume-0 = " "
+    ramp-volume-1 = " "
+    click-right = "pactl set-sink-volume @DEFAULT_SINK@ -1000"
+    click-middle = "pavucontrol"
+    interval = 5
+    label-active-font = 1
+
+[module/date]
+    type = internal/date
+    interval = 5
+    date = %a, %b %d
+    time = %l:%M %p
+    label = %{T3}%date%%{T-}  %time%
+    background = ${colors.background} 
+
+[module/battery]
+      type = internal/battery
+    battery = BAT0
+    adapter = ADP1
+    full-at = 98
+    format-charging = <animation-charging> <label-charging>
+    format-discharging = <animation-discharging> <label-discharging>
+    format-discharging-underline = ${self.format-charging-underline}
+    format-full-prefix = " "
+    format-full-prefix-foreground = ${colors.foreground}
+    format-full-underline = ${self.format-charging-underline}
+    ramp-capacity-0 = 
+    ramp-capacity-1 = 
+    ramp-capacity-2 = 
+    ramp-capacity-foreground = ${colors.foreground}
+    animation-charging-0 = 
+    animation-charging-1 = 
+    animation-charging-2 = 
+    animation-charging-foreground = ${colors.foreground}
+    animation-charging-framerate = 750
+    animation-discharging-0 = 
+    animation-discharging-1 = 
+    animation-discharging-2 = 
+    animation-discharging-foreground = ${colors.foreground}
+    animation-discharging-framerate = 750
+
+[module/xwindow]
+    type = internal/xwindow
+    format = <label>
+    label = %title%
+    label-maxlen = 50
+    label-empty = Empty
+
+[module/xworkspaces]
+type = internal/xworkspaces
+enable-click = true
+enable-scroll = true
+; available values = %icon%, %name% and %index%
+
+; You can get a list of the defined desktops using:
+; $ xprop -root _NET_DESKTOP_NAMES
+icon-0 = 1;爵 
+icon-1 = 2;
+icon-2 = 3; 
+icon-3 = 4;
+icon-4 = 5;ﭮ
+icon-5 = 6;拾
+icon-6 = 7;
+icon-7 = 8;
+icon-8 = 9;
+icon-default =
+
+
+;label-active = %{T4}%{T}
+label-active-background = ${colors.active}
+
+;label-occupied = 
+label-occupied-underline = ${colors.secondary}
+
+label-empty = %icon%
+
+label-urgent = %icon%
+label-urgent-underline = #FF5C75
+
+label-active-padding = 1
+label-urgent-padding = 1
+label-empty-padding = 1
+label-occupied-padding = 1
+
+
+[module/info-kernel]
+type = custom/script
+exec = uname -r
+interval = 1024
+
+[module/prev]
+     type = custom/script
+    exec = echo "玲"
+    click-left = "playerctl previous"
+    [module/play]
+    type = custom/script
+    exec = echo ""
+    click-left = "playerctl play-pause"
+    [module/next]
+    type = custom/script
+    exec = echo "怜"
+    click-left = "playerctl next"
+[colors]
+background = #f0000000
+foreground = #fbf1c7
+primary = #fabd2f
+secondary = #fb4934
+alert = #cc241d
+

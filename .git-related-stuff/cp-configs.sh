@@ -9,8 +9,8 @@
 #                                   
 # Licenced under the newest version of the GNU GENERAL PUBLIC LICENSE
 
-
-
+# polybar
+cp -fr ~/.config/polybar/* ~/Documents/GitHub/dotfiles/.config/polybar/
 #i3wm
 cp -fr ~/.config/i3/* ~/Documents/GitHub/dotfiles/.config/i3/
 
