@@ -54,11 +54,7 @@ do
     awesome.connect_signal("debug::error", function (err)
         -- Make sure we don't go into an endless error loop
         if in_error then return end
-        in_error = true
-
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = tostring(err) })
+        in_error = true naughty.notify({ preset = naughty.config.presets.critical, title = "Oops, an error happened!", text = tostring(err) })
         in_error = false
     end)
 end
@@ -357,6 +353,10 @@ globalkeys = gears.table.join(
     awful.util.spawn("brave") end,
               {description = "brave", group = "Parzival"}),
 
+              -- rofi run
+            awful.key({modkey}, "r", function()
+                awful.util.spawn("rofi -show run") end,
+                {descripton ="rofi-run", group ="Parzival"}),
 
     -- Volume 
     awful.key({ modkey },              "=",      function ()
@@ -511,9 +511,9 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
-awful.rules.rules = {
+ awful.rules.rules = {
     -- All clients will match this rule.
-    { rule = { },
+ { rule = { },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
@@ -537,6 +537,9 @@ awful.rules.rules = {
           "Arandr",
           "Blueman-manager",
           "Gpick",
+          "Picture in Picture",
+          "tint2",
+          "panel",
           "Kruler",
           "MessageWin",  -- kalarm.
           "Sxiv",
@@ -636,17 +639,18 @@ end)
 beautiful.useless_gap = 7 
 
 -- Auto
+    awful.spawn.with_shell("killall polybar")
     --Wallpaper 
     awful.spawn.with_shell("bash ~/.config/awesome/random-wall.sh")
-
+--awful.spawn.with_shell("plank")
     awful.spawn.with_shell("polybar top")
 awful.spawn.with_shell("picom")
 myscreen = awful.screen.focused()
 myscreen.mywibox.visible = not myscreen.mywibox.visible
 
 --Round
-client.connect_signal("manage", function (c)
-    c.shape = function(cr,w,h)
-  gears.shape.rounded_rect(cr,w,h,5)
-    end
-end)
+-- client.connect_signal("manage", function (c)
+    -- c.shape = function(cr,w,h)
+  -- gears.shape.rounded_rect(cr,w,h,5)
+  --  end
+-- end)

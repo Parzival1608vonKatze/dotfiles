@@ -23,5 +23,8 @@ cp -fr ~/.config/awesome/* ~/Documents/GitHub/dotfiles/.config/awesome/
 # picom / compton
 cp -fr ~/.config/picom/picom.conf ~/Documents/GitHub/dotfiles/.config/picom/
 
+# rofi
+cp -fr ~/.config/rofi/* ~/Documents/GitHub/dotfiles/.config/rofi/
+
 
 #                                 (END OF FILE)
