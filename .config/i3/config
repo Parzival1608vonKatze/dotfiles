@@ -47,20 +47,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 #  Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec alacritty
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -111,14 +97,27 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 
+# start a terminal
+bindsym $mod+Return exec alacritty
 
+# browser 
+bindsym $mod+b exec brave
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id rofi -show run
+
+# random wallpaper
+bindsysm $mod+Shift+s exec "bash ~/.config/awesome/random-wall.sh"
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "bash ~/.config/rofi/powermenu/powermenu.sh"
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -149,7 +148,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status -c ~/.config/i3/i3status
+        status_command i3blocks
+        #i3status -c ~/.config/i3/i3status
 
             colors {
         background #1d2021
@@ -175,7 +175,7 @@ assign [class="Chromium"] $ws1
 #Brave
 assign [class="Brave-browser"] $ws1
 #Alacritty
-assign [class="Alacritty"] $ws2
+#assign [class="Alacritty"] $ws2
 #Minectaft
 assign [class="minecraft-launcher"] $ws3
 assign [class="Minecraft*"] $ws3
@@ -220,7 +220,7 @@ bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
 #executing stuff
-exec nitrogen --restore; sleep 1
+exec bash ~/.config/i3/random-wall.sh
 
 exec picom
 exec --no-startup-id pamac-tray
@@ -245,12 +245,12 @@ set $ws1 "1:爵 web"
 set $ws2 "2: terminal" 
 set $ws3 "3: gaming" 
 set $ws4 "4: code"  
-set $ws5 "5: git"
-set $ws6 "6:ﳳ passwd"
-set $ws7 "7: message"
-set $ws8 "8: generic"
-set $ws9 "9: generic"
-set $ws10 "10: generic"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
 
 
 # switch to workspace

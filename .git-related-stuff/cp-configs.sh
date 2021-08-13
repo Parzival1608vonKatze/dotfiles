@@ -26,5 +26,7 @@ cp -fr ~/.config/picom/picom.conf ~/Documents/GitHub/dotfiles/.config/picom/
 # rofi
 cp -fr ~/.config/rofi/* ~/Documents/GitHub/dotfiles/.config/rofi/
 
+# i3blocks
+cp -fr ~/.config/i3blocks/* ~/Documents/GitHub/dotfiles/.config/i3blocks/
 
 #                                 (END OF FILE)
